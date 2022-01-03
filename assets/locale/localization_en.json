@@ -1,0 +1,19 @@
+{
+  "app_name": "Aqarat",
+  "no_acc": "Don't have account?",
+  "create_acc": "Create one",
+  "continue": "continue",
+  "welcome": "Welcome",
+  "phone": "Phone",
+  "sign_in": "Sign In",
+  "otp": "OTP",
+  "verification_code": "Verification Code",
+  "no_code": "Didn't receive the code?",
+  "resend": "Resend",
+  "verify": "Verify",
+  "otp_sent": "OTP has been send to your mobile number. Please Verify",
+  "home": "Home",
+  "reservations": "Reservations",
+  "cancel_reservation": "Cancel Reservation",
+  "wallet": "Wallet"
+}

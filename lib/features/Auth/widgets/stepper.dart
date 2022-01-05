@@ -4,11 +4,13 @@ import 'package:qaf/utils_and_services/decoration/colors.dart';
 class StepperWidget extends StatefulWidget {
   final int stepsCount;
   final int currentStep;
+  final Function(int) onTap;
 
   const StepperWidget({
     Key? key,
     required this.stepsCount,
     required this.currentStep,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -34,8 +36,9 @@ class _StepperWidgetState extends State<StepperWidget> {
     steps = List.generate(
       widget.stepsCount,
       (index) => Step(
-        currentStep: (index + 1).toString(),
+        currentStep: (index + 1),
         isSelected: widget.currentStep > index - 1,
+        onTap: () => widget.onTap(index),
       ),
     );
 
@@ -69,30 +72,35 @@ class _StepperWidgetState extends State<StepperWidget> {
 }
 
 class Step extends StatelessWidget {
-  final String currentStep;
+  final int currentStep;
   final bool isSelected;
+  final VoidCallback onTap;
 
   const Step({
     Key? key,
     required this.currentStep,
+    required this.onTap,
     this.isSelected = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 32,
-      width: 32,
-      alignment: Alignment.center,
-      child: Text(
-        currentStep,
-        style: TextStyle(
-          color: isSelected ? Colors.white : grey707070,
+    return GestureDetector(
+      onTap: isSelected ? onTap : null,
+      child: Container(
+        height: 32,
+        width: 32,
+        alignment: Alignment.center,
+        child: Text(
+          currentStep.toString(),
+          style: TextStyle(
+            color: isSelected ? Colors.white : grey707070,
+          ),
         ),
-      ),
-      decoration: BoxDecoration(
-        color: isSelected ? green00A170 : greyC8C8C8,
-        borderRadius: BorderRadius.circular(16),
+        decoration: BoxDecoration(
+          color: isSelected ? green00A170 : greyC8C8C8,
+          borderRadius: BorderRadius.circular(16),
+        ),
       ),
     );
   }

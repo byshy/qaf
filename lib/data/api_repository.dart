@@ -21,7 +21,7 @@ class ApiRepo {
 
   Future<User> login({required Map<String, dynamic> data}) async {
     await Future.delayed(
-      const Duration(seconds: 1),
+      const Duration(milliseconds: 500),
     );
 
     return User(
@@ -58,7 +58,7 @@ class ApiRepo {
 
   Future<String> verifyCode({required Map<String, dynamic> data}) async {
     await Future.delayed(
-      const Duration(seconds: 1),
+      const Duration(milliseconds: 500),
     );
 
     return 'Token';
@@ -66,7 +66,7 @@ class ApiRepo {
 
   Future<void> resendCode({Map<String, dynamic>? data}) async {
     await Future.delayed(
-      const Duration(seconds: 1),
+      const Duration(milliseconds: 500),
     );
   }
 }
